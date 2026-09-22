@@ -24,7 +24,7 @@ module fifo #(
     wire do_write = wr_en && !full;
     wire do_read  = rd_en && !empty;
 
-    assign full  = (count == DEPTH-1);
+    assign full  = (count == DEPTH);
     assign empty = (count == 0);
 
     always @(posedge clk or negedge rst_n) begin
