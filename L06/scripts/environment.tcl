@@ -1,8 +1,10 @@
 set TOP aes128_iterative
-set REPORT_DIR "/PATH/TO/reports"
-set DB_DIR "/PATH/TO/db"
+set BASE_DIR "/home/alanma/L06"
+set SCRIPT_DIR "$BASE_DIR/scripts"
+set REPORT_DIR  "$BASE_DIR/reports"
+set BL_DIR "$BASE_DIR/genus_results_bl"
 
-set BL_DIR "/PATH/TO/baseline"
+set DB_DIR "$BL_DIR/baseline.db"
 
 # LEF files definition
 set CELL_LEF "/cad/dk/c/Sky130/sky130_scl_9T_0.1.2/sky130_scl_9T/lef/sky130_scl_9T.lef"
@@ -10,7 +12,5 @@ set TECH_LEF "/cad/dk/c/Sky130/sky130_scl_9T_0.1.2/sky130_scl_9T_tech/lef/sky130
 set PHYS_LEF "/cad/dk/c/Sky130/sky130_scl_9T_0.1.2/sky130_scl_9T_tech/lef/sky130_scl_9T_phyCells.lef"
 
 
-set NETLIST  "/PATH/TO/baseline_mapped.v"
-set MMMC     "/PATH/TO/mmmc.tcl"
-
-# Replace all placeholders with the local course installation.
+set NETLIST  "$BL_DIR/baseline_mapped.v"
+set MMMC     "$SCRIPT_DIR/mmmc.tcl"
