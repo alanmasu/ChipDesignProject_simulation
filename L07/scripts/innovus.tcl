@@ -1,5 +1,5 @@
 
-source "/home/alanma/L06/scripts/environment.tcl"
+source "/home/alanma/Chip-Design-Project/L07/scripts/environment.tcl"
 
 set init_verilog $NETLIST
 set init_top_cell $TOP

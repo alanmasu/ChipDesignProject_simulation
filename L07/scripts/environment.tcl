@@ -1,5 +1,6 @@
 set TOP aes128_iterative
-set BASE_DIR "/home/alanma/L06"
+
+set BASE_DIR "/home/alanma/Chip-Design-Project/L07"
 
 set SCRIPT_DIR "$BASE_DIR/scripts"
 set REPORT_DIR  "reports"
