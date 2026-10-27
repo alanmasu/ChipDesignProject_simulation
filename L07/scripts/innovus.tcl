@@ -58,113 +58,119 @@ saveDesign db/02_floorplan.enc
 globalNetConnect VDD -type pgpin -pin VDD -all
 globalNetConnect VSS -type pgpin -pin VSS -all
 
-setAddRingMode 
-    -ring_target default 
-    -extend_over_row 0 
-    -ignore_rows 0 
-    -avoid_short 0 
-    -skip_crossing_trunks none 
-    -stacked_via_top_layer met5 
-    -stacked_via_bottom_layer met1 
-    -via_using_exact_crossover_size 1 
-    -orthogonal_only true 
-    -skip_via_on_pin {  standardcell } 
+setAddRingMode \
+    -ring_target default \
+    -extend_over_row 0 \
+    -ignore_rows 0 \
+    -avoid_short 0 \
+    -skip_crossing_trunks none \
+    -stacked_via_top_layer met5 \
+    -stacked_via_bottom_layer met1 \
+    -via_using_exact_crossover_size 1 \
+    -orthogonal_only true \
+    -skip_via_on_pin {  standardcell } \
     -skip_via_on_wire_shape {  noshape }
-addRing 
-    -nets {VSS VDD} 
-    -around user_defined 
-    -user_defined_region {} 
-    -type core_rings 
-    -layer {top met5 bottom met5 left met4 right met4} 
-    -width {top 5 bottom 5 left 5 right 5} 
-    -spacing {top 5 bottom 5 left 5 right 5} 
-    -offset {top 2.5 bottom 2.5 left 2.5 right 2.5} 
-    -center 0 
-    -threshold 0 
-    -jog_distance 0 
+
+
+addRing \
+    -nets {VSS VDD} \
+    -around user_defined \
+    -user_defined_region {} \
+    -type core_rings \
+    -layer {top met5 bottom met5 left met4 right met4} \
+    -width {top 5 bottom 5 left 5 right 5} \
+    -spacing {top 5 bottom 5 left 5 right 5} \
+    -offset {top 2.5 bottom 2.5 left 2.5 right 2.5} \
+    -center 0 \
+    -threshold 0 \
+    -jog_distance 0 \
     -snap_wire_center_to_grid None
 
+
 # Vertcal power stipes
-setAddStripeMode 
-    -ignore_block_check false 
-    -break_at none 
-    -route_over_rows_only false 
-    -rows_without_stripes_only false 
-    -extend_to_closest_target none 
-    -stop_at_last_wire_for_area false 
-    -partial_set_thru_domain false 
-    -ignore_nondefault_domains false 
-    -trim_antenna_back_to_shape none 
-    -spacing_type edge_to_edge 
-    -spacing_from_block 0 
-    -stripe_min_length stripe_width 
-    -stacked_via_top_layer met5 
-    -stacked_via_bottom_layer met1 
-    -via_using_exact_crossover_size false 
-    -split_vias false 
-    -orthogonal_only true 
-    -allow_jog { padcore_ring  block_ring } 
-    -skip_via_on_pin {  standardcell } 
+setAddStripeMode \
+    -ignore_block_check false \
+    -break_at none \
+    -route_over_rows_only false \
+    -rows_without_stripes_only false \
+    -extend_to_closest_target none \
+    -stop_at_last_wire_for_area false \
+    -partial_set_thru_domain false \
+    -ignore_nondefault_domains false \
+    -trim_antenna_back_to_shape none \
+    -spacing_type edge_to_edge \
+    -spacing_from_block 0 \
+    -stripe_min_length stripe_width \
+    -stacked_via_top_layer met5 \
+    -stacked_via_bottom_layer met1 \
+    -via_using_exact_crossover_size false \
+    -split_vias false \
+    -orthogonal_only true \
+    -allow_jog { padcore_ring  block_ring } \
+    -skip_via_on_pin {  standardcell } \
     -skip_via_on_wire_shape {  noshape   }
-addStripe 
-    -nets {VSS VDD} 
-    -layer met4 
-    -direction vertical 
-    -width 4 
-    -spacing 4 
-    -number_of_sets 4 
-    -start_from left 
-    -start_offset 75 
-    -stop_offset 75 
-    -switch_layer_over_obs false 
-    -max_same_layer_jog_length 2 
-    -padcore_ring_top_layer_limit met5 
-    -padcore_ring_bottom_layer_limit met1 
-    -block_ring_top_layer_limit met5 
-    -block_ring_bottom_layer_limit met1 
-    -use_wire_group 0 
+
+
+addStripe \
+    -nets {VSS VDD} \
+    -layer met4 \
+    -direction vertical \
+    -width 4 \
+    -spacing 4 \
+    -number_of_sets 4 \
+    -start_from left \
+    -start_offset 75 \
+    -stop_offset 75 \
+    -switch_layer_over_obs false \
+    -max_same_layer_jog_length 2 \
+    -padcore_ring_top_layer_limit met5 \
+    -padcore_ring_bottom_layer_limit met1 \
+    -block_ring_top_layer_limit met5 \
+    -block_ring_bottom_layer_limit met1 \
+    -use_wire_group 0 \
     -snap_wire_center_to_grid None
 
 # # Horizontal power stripes
-# setAddStripeMode 
-#     -ignore_block_check false 
-#     -break_at none 
-#     -route_over_rows_only false 
-#     -rows_without_stripes_only false 
-#     -extend_to_closest_target none 
-#     -stop_at_last_wire_for_area false 
-#     -partial_set_thru_domain false 
-#     -ignore_nondefault_domains false 
-#     -trim_antenna_back_to_shape none 
-#     -spacing_type edge_to_edge 
-#     -spacing_from_block 0 
-#     -stripe_min_length stripe_width 
-#     -stacked_via_top_layer met5 
-#     -stacked_via_bottom_layer met1 
-#     -via_using_exact_crossover_size false 
-#     -split_vias false 
-#     -orthogonal_only true 
-#     -allow_jog { padcore_ring  block_ring } 
-#     -skip_via_on_pin {  standardcell } 
-#     -skip_via_on_wire_shape {  noshape   }
+# setAddStripeMode \
+#     -ignore_block_check false \
+#     -break_at none \
+#     -route_over_rows_only false \
+#     -rows_without_stripes_only false \
+#     -extend_to_closest_target none \
+#     -stop_at_last_wire_for_area false \
+#     -partial_set_thru_domain false \
+#     -ignore_nondefault_domains false \
+#     -trim_antenna_back_to_shape none \
+#     -spacing_type edge_to_edge \
+#     -spacing_from_block 0 \
+#     -stripe_min_length stripe_width \
+#     -stacked_via_top_layer met5 \
+#     -stacked_via_bottom_layer met1 \
+#     -via_using_exact_crossover_size false \
+#     -split_vias false \
+#     -orthogonal_only true \
+#     -allow_jog { padcore_ring  block_ring } \
+#     -skip_via_on_pin {  standardcell } \
+#     -skip_via_on_wire_shape {  noshape   }\
+
 
 # addStripe 
-#     -nets {VSS VDD} 
-#     -layer met5 
-#     -direction horizontal 
-#     -width 4 
-#     -spacing 4 
-#     -number_of_sets 4 
-#     -start_from bottom 
-#     -start_offset 75 
-#     -stop_offset 75 
-#     -switch_layer_over_obs false 
-#     -max_same_layer_jog_length 2 
-#     -padcore_ring_top_layer_limit met5 
-#     -padcore_ring_bottom_layer_limit met1 
-#     -block_ring_top_layer_limit met5 
-#     -block_ring_bottom_layer_limit met1 
-#     -use_wire_group 0 
+#     -nets {VSS VDD} \
+#     -layer met5 \
+#     -direction horizontal \
+#     -width 4 \
+#     -spacing 4 \
+#     -number_of_sets 4 \
+#     -start_from bottom \
+#     -start_offset 75 \
+#     -stop_offset 75 \
+#     -switch_layer_over_obs false \
+#     -max_same_layer_jog_length 2 \
+#     -padcore_ring_top_layer_limit met5 \
+#     -padcore_ring_bottom_layer_limit met1 \
+#     -block_ring_top_layer_limit met5 \
+#     -block_ring_bottom_layer_limit met1 \
+#     -use_wire_group 0 \
 #     -snap_wire_center_to_grid None
 
 # Power Rails
