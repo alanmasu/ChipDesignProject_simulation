@@ -1,0 +1,36 @@
+innovus 19> reportCongestion -overflow 
+
+Usage: (174.5%H 61.0%V) = (6.054e+05um 4.034e+05um) = (146235 97451)
+Overflow: 25960 = 23599 (218.20% H) + 2362 (21.84% V)
+
+Congestion distribution:
+
+Remain	cntH		cntV
+--------------------------------------
+ -5:	6582 60.86%	375	 3.47%
+ -4:	509	 4.71%	146	 1.35%
+ -3:	498	 4.60%	194	 1.79%
+ -2:	404	 3.74%	277	 2.56%
+ -1:	357	 3.30%	331	 3.06%
+--------------------------------------
+  0:	319	 2.95%	411	 3.80%
+  1:	250	 2.31%	567	 5.24%
+  2:	257	 2.38%	699	 6.46%
+  3:	272	 2.52%	645	 5.96%
+  4:	190	 1.76%	719	 6.65%
+  5:	1177 10.88%	6451 59.65%
+  
+innovus 20> reportCongestion -hotSpot  
+
+[hotspot] +------------+---------------+---------------+
+[hotspot] |            |   max hotspot | total hotspot |
+[hotspot] +------------+---------------+---------------+
+[hotspot] | normalized |        605.00 |        605.00 |
+[hotspot] +------------+---------------+---------------+
+Local HotSpot Analysis: normalized max congestion hotspot area = 605.00, normalized total congestion hotspot area = 605.00 (area is in unit of 4 std-cell row bins)
+[hotspot] top 1 congestion hotspot bounding boxes and scores of normalized hotspot
+[hotspot] +-----+-------------------------------------+---------------+
+[hotspot] | top |            hotspot bbox             | hotspot score |
+[hotspot] +-----+-------------------------------------+---------------+
+[hotspot] |  1  |     1.84     1.84   415.84   415.84 |      605.00   |
+[hotspot] +-----+-------------------------------------+---------------+
