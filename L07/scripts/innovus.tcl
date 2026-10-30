@@ -6,6 +6,8 @@ set SCRIPT_DIR "$BASE_DIR/scripts"
 set REPORT_DIR  "$WORK_DIR/reports"
 
 set BL_DIR "$BASE_DIR/genus_results_bl"
+## Exporting script path for re-load the same
+set script_path [info script]
 # set DB_DIR "$BL_DIR/baseline.db"
 
 ## Source the environment file to set up the Innovus environment variables and paths.
@@ -307,4 +309,39 @@ proc doBuildAll {} {
     doRoutingDesign
     doPostRouteOptimization
     doFinalChecks
+}
+
+proc doBuild {fromStep} {
+    if {$fromStep < 1} {
+        doInitDesign
+    }
+    if {$fromStep < 2} {
+        doFloorPlan
+    }
+    if {$fromStep < 3} {
+        doPowerPlan
+    }
+    if {$fromStep < 4} {
+        doPlaceCells
+    }
+    if {$fromStep < 5} {
+        doPreCTS
+    }
+    if {$fromStep < 6} {
+        doClockTreeSynthesis
+    }
+    if {$fromStep < 7} {
+        doRoutingDesign
+    }
+    if {$fromStep < 8} {
+        doPostRouteOptimization
+    }
+    if {$fromStep < 9} {
+        doFinalChecks
+    }
+}
+
+proc doReload {} {
+    puts "Reloading script: $::script_path"
+    source $::script_path
 }
